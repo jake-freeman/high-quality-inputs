@@ -1,0 +1,11 @@
+{
+  "name": "high-quality-inputs",
+  "version": "1.0.0",
+  "description": "For the highest of quality inputs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jake-freeman",
+  "license": "MIT"
+}

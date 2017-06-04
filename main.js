@@ -17,17 +17,18 @@
     return dice;
   }
 
-  function renderDice(dice, container) {
+  function renderDice(dice, container, inputField) {
     // lazy way of doing dashes for now
     var i = 0;
     dice.forEach((die) => {
       i++;
       die.renderTo(container);
-      if (!(i % 3) || !(i % 6)) {
-        $(container).append($('<span>-</span>'));
+      if (i === 3 || i === 6) {
+        $(container).append($('<span>—</span>'));
       }
       die.startRolling(50);
     });
+    $(container).append($('<p>Tap/Click a number to stop it</p>'));
   }
 
   //
@@ -55,7 +56,7 @@
     function _makeDieEl() {
       this._textEl = $('<span class="die-vlaue"></span>');
 
-      this._dieEl = $('<div class="btn btn-secondary"></div>');
+      this._dieEl = $('<div class="btn btn-lg btn-secondary"></div>');
       this._dieEl.append(this._textEl);
 
       // set click handler
@@ -74,8 +75,6 @@
     }
 
     SimpleDie.prototype.renderTo = function (parentEl) {
-      console.log(parentEl);
-      console.log(this._dieEl);
       $(parentEl).append(this.getEl());
     }
 
